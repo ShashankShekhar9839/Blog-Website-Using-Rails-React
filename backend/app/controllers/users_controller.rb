@@ -18,8 +18,7 @@ end
 
   private
 
-  def user_params
-    # Note: password and password_confirmation are handled by has_secure_password
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  def user_params  
+    params.require(:user).permit(:username, :email, :password)
   end
 end
