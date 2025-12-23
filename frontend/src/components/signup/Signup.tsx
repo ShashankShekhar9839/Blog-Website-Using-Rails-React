@@ -9,7 +9,6 @@ export default function Signup() {
     password: "",
   });
 
-  // 1. Function to update state as you type
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -17,9 +16,8 @@ export default function Signup() {
     });
   };
 
-  // 2. Function to handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Prevents the page from refreshing
+    e.preventDefault();
 
     try {
       const response = await fetch("http://localhost:3000/signup", {
@@ -34,7 +32,7 @@ export default function Signup() {
 
       if (response.ok) {
         alert("Account created! Please login.");
-        navigate("/");
+        navigate("/login");
       } else {
         alert(data.errors ? data.errors.join(", ") : "Signup failed");
       }

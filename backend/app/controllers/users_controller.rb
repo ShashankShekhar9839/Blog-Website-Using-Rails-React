@@ -1,10 +1,12 @@
+# Rails API controller responsible for creating a user (signup / registration)
+
 class UsersController < ApplicationController
   def create
   user = User.new(user_params)
   if user.save
     # Only send back the ID, username, and email. NEVER the digest.
     render json: { 
-      message: "User created successfully", 
+      message: "User created successfully",  
       user: { 
         id: user.id, 
         username: user.username, 
